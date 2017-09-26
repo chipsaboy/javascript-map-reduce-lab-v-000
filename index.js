@@ -9010,3 +9010,11 @@ var issuesWithUpdatedApiUrl = issues
 var commentCountAcrossIssues = issues
   .map(issue => issue.comments_count)
   .reduce((total, count) => total + count, 0);
+
+var openIssues = issues.reduce((openIssues, issue) => {
+  if (issue.state === 'open') {
+    return [...openIssues, issue];
+  }
+
+  return openIssues;
+}, []);
