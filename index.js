@@ -9002,10 +9002,11 @@ const issues = [
 ];
 
 
-var issuesWithUpdatedApiUrl = issues.map(issue => 
-  Object.assign({}, issue, { url: issue.url.replace('api.github.com', 'api-v2.github.com')
-}));
+var issuesWithUpdatedApiUrl = issues
+  .map(issue => Object.assign({}, issue, {
+    url: issue.url.replace('api.github.com', 'api-v2.github.com')
+  }));
 
-var commentCountAcrossIssues = issues.map(issue =>
-  issue.comments_count).reduce((total, count) => total + count, 0)
-);
+var commentCountAcrossIssues = issues
+  .map(issue => issue.comments_count)
+  .reduce((total, count) => total + count, 0);
